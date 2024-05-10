@@ -11,7 +11,7 @@ import SwiftUI
 struct Aula_InternacionalizacaoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TitleScreenView()
         }
     }
 }
