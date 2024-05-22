@@ -77,7 +77,7 @@ struct TitleScreenView: View {
                     .frame(height: 100)
                     .padding(.horizontal, 45)
                     .overlay {
-                        Text("Join")
+                        Text("Tap to join")
                             .font(.largeTitle)
                     }
             })
