@@ -8,57 +8,76 @@
 import SwiftUI
 
 struct TitleScreenView: View {
+    @AppStorage("selectedLanguage") private var selectedLanguage: String = "en"
+    
+    let playerNickname: String
     let playerHighScore: String
     let lastTimePlayed: String
     let playersOnlineCount: String
     
-    init(playerHighScore: String = "1234.5678",
+    init(playerNickname: String = "Parzival",
+         playerHighScore: String = "123,456.78",
          playersOnlineCount: String = "10",
          lastTimePlayed: Date = Date()) {
+        self.playerNickname = playerNickname
         self.playerHighScore = playerHighScore
         self.playersOnlineCount = playersOnlineCount
         self.lastTimePlayed = "\(lastTimePlayed)"
     }
     
     var body: some View {
-        VStack(spacing: 8) {
-            
-            header
-            
-            Spacer()
-            
-            title
-            playButton
-            
-            Spacer()
-            
-            footer
-        }
-        .foregroundStyle(.white)
-        .bold()
-        .padding(20)
-        .background {
-            Image("MainScreenBG")
-                .resizable()
-                .ignoresSafeArea()
+        NavigationStack {
+            VStack(spacing: 8) {
+                
+                header
+                
+                Spacer()
+                
+                title
+                playButton
+                
+                Spacer()
+                
+                footer
+            }
+            .foregroundStyle(.white)
+            .fontWeight(.heavy)
+            .padding(20)
+            .background {
+                Image("MainScreenBG")
+                    .resizable()
+                    .ignoresSafeArea()
+            }
         }
     }
     
     var header: some View {
-        HStack {
-            VStack {
-                Image("Flag.EUA")
-                    .resizable()
-                    .frame(width: 60, height: 45)
+        HStack(alignment: .top) {
+            VStack(spacing: 2) {
+                Text("Language:")
                 
-                Text("Language")
+                NavigationLink {
+                    LangSelectionView()
+                } label: {
+                    Image(flags.getFlagFromLanguage(language: selectedLanguage).rawValue)
+                        .resizable()
+                        .frame(width: 60, height: 45)
+                }
+            }
+            .background {
+                Color.gray.blur(radius: 10)
             }
             
             Spacer()
             
             VStack {
+                Text("Nickname:")
+                Text(playerNickname)
                 Text("Highscore:")
                 Text(playerHighScore)
+            }
+            .background {
+                Color.black.blur(radius: 10)
             }
         }
     }
@@ -67,22 +86,29 @@ struct TitleScreenView: View {
         Text("SPACE\n GAME")
             .font(.system(size: 70))
             .fontWidth(.expanded)
+            .shadow(color: .blue, radius: 20)
     }
     
     var playButton: some View {
         VStack(spacing: 10) {
             Button(action: {}, label: {
-                RoundedRectangle(cornerRadius: 30)
-                    .stroke(lineWidth: 6)
-                    .frame(height: 100)
+                Text("Tap to join")
+                    .font(.largeTitle)
                     .padding(.horizontal, 45)
-                    .overlay {
-                        Text("Join")
-                            .font(.largeTitle)
+                    .padding(.vertical, 20)
+                    .background {
+                        ZStack {
+                            Color.black.blur(radius: 10)
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(lineWidth: 6)
+                        }
                     }
             })
             Text("\(playersOnlineCount) Player(s) online!")
                 .font(.headline)
+                .background {
+                    Color.black.blur(radius: 10)
+                }
         }
     }
     
@@ -93,6 +119,9 @@ struct TitleScreenView: View {
             Text("Last played: \(lastTimePlayed)")
             
             Spacer()
+        }
+        .background {
+            Color.black.blur(radius: 20)
         }
     }
 }
