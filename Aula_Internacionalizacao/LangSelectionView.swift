@@ -27,7 +27,7 @@ enum flags: String, CaseIterable {
     
     static func getFlagFromLanguage(language: String) -> flags {
         switch language {
-        case "en-US":
+        case "en":
             return .eua
         case "pt-BR":
             return .br
@@ -73,11 +73,8 @@ struct LangSelectionView: View {
             }
         }
     }
-}
-
-//extension String {
-//    func localized() -> Self {
-//        let key = self
+    
+//    func localized(key: String) -> String {
 //        let selectedLanguage = UserDefaults.standard.string(forKey: "selectedLanguage") ?? "en"
 //        guard let path = Bundle.main.path(forResource: selectedLanguage, ofType: "lproj"),
 //              let bundle = Bundle(path: path) else {
@@ -85,7 +82,7 @@ struct LangSelectionView: View {
 //        }
 //        return NSLocalizedString(key, bundle: bundle, comment: "")
 //    }
-//}
+}
 
 #Preview {
     LangSelectionView()
