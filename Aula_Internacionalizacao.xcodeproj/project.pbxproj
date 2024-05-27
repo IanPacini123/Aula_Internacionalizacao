@@ -11,6 +11,8 @@
 		DD18BB102BEEACEF004B8AF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD18BB0F2BEEACEF004B8AF8 /* Assets.xcassets */; };
 		DD18BB132BEEACEF004B8AF8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD18BB122BEEACEF004B8AF8 /* Preview Assets.xcassets */; };
 		DD18BB1A2BEEADFF004B8AF8 /* TitleScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD18BB192BEEADFF004B8AF8 /* TitleScreenView.swift */; };
+		DD7ABFB82C010D5D0063200B /* HighscoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7ABFB72C010D5D0063200B /* HighscoresView.swift */; };
+		DD7ABFBA2C010DEE0063200B /* HighScoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7ABFB92C010DEE0063200B /* HighScoreModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		DD18BB0F2BEEACEF004B8AF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD18BB122BEEACEF004B8AF8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DD18BB192BEEADFF004B8AF8 /* TitleScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenView.swift; sourceTree = "<group>"; };
+		DD7ABFB72C010D5D0063200B /* HighscoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoresView.swift; sourceTree = "<group>"; };
+		DD7ABFB92C010DEE0063200B /* HighScoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +57,10 @@
 			children = (
 				DD18BB0B2BEEACEE004B8AF8 /* Aula_InternacionalizacaoApp.swift */,
 				DD18BB192BEEADFF004B8AF8 /* TitleScreenView.swift */,
+				DD7ABFB72C010D5D0063200B /* HighscoresView.swift */,
 				DD18BB0F2BEEACEF004B8AF8 /* Assets.xcassets */,
 				DD18BB112BEEACEF004B8AF8 /* Preview Content */,
+				DD7ABFB92C010DEE0063200B /* HighScoreModel.swift */,
 			);
 			path = Aula_Internacionalizacao;
 			sourceTree = "<group>";
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD7ABFBA2C010DEE0063200B /* HighScoreModel.swift in Sources */,
 				DD18BB1A2BEEADFF004B8AF8 /* TitleScreenView.swift in Sources */,
+				DD7ABFB82C010D5D0063200B /* HighscoresView.swift in Sources */,
 				DD18BB0C2BEEACEE004B8AF8 /* Aula_InternacionalizacaoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
