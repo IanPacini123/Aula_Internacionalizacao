@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct HighscoresView: View {
-    let highscores: MockHighscores = .init()
     let numberFormatter: NumberFormatter
+    let resetDay = HighScore.resetDay
     
     init() {
         let numberFormatter = NumberFormatter()
@@ -29,7 +29,14 @@ struct HighscoresView: View {
                     .font(.system(size: 40))
                     .fontWidth(.expanded)
                     .fontWeight(.heavy)
-                    .padding(.bottom)
+                    .padding(.bottom, 4)
+                
+                HStack {
+                    Image(systemName: "exclamationmark.circle")
+                    Text("Highscores reset at \(resetDay)")
+                        .font(.callout)
+                }
+                .padding(.bottom, 4)
                 
                 HStack {
                     Text("Nickname")
@@ -45,21 +52,39 @@ struct HighscoresView: View {
                 .bold()
                 
                 ScrollView {
-                    ForEach(highscores.HighScores, id: \.id) { hs in
+                    ForEach(MockHighscores.HighScores, id: \.id) { hs in
                         HStack(spacing: 16) {
                             Text(hs.nickname)
-                                .padding(.bottom, 4)
-                            Text(numberFormatter.string(from: NSNumber(value: hs.score)) ?? "0")
+                            
+                            Text(numberFormatter.string(from: hs.score) ?? "0")
                             
                             Text(hs.date.formatted(.iso8601 .day() .month() .year()))
                         }
-                        
+                        .padding(.bottom, 4)
                     }
                 }
                 
+                Divider()
+                
                 Text("Your HighScore")
                     .bold()
-                    .padding()
+                    .padding(4)
+                    .font(.largeTitle)
+                Group {
+                    HStack(spacing: 16) {
+                        Text(MockHighscores.userHighScore.nickname)
+                            .bold()
+                        Text("scored")
+                        Text("\(numberFormatter.string(from: MockHighscores.userHighScore.score) ?? "0") pts")
+                            .bold()
+                    }
+                    
+                    HStack {
+                        Text("Scored at:")
+                        Text(MockHighscores.userHighScore.date.formatted())
+                            .bold()
+                    }
+                }
             }
             .foregroundStyle(.white)
             .padding(.top)
